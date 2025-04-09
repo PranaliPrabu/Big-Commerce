@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-light: #f0f4f8;
+            --accent-light: #fda4af;
+            --background-light: linear-gradient(to right, #fef6e4, #e4f0ff, #ffe0e0);
+            --text-light: #222;
+
+            --primary-dark: #121212;
+            --accent-dark: #86efac;
+            --background-dark: linear-gradient(to right, #2b2b2b, #3f3f3f, #555555);
+            --text-dark: #f0f0f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background-light);
+            transition: all 0.5s ease;
+        }
+
+        body.dark-mode {
+            background: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 650px;
+            /* increased from 420px */
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .dark-mode .container {
+            background: rgba(40, 40, 40, 0.85);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+            color: var(--text-dark);
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .toggle-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background-color: var(--accent-light);
+            color: #fff;
+            border: none;
+        }
+
+        .dark-mode .toggle-mode {
+            background-color: var(--accent-dark);
+        }
+
+        .form-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            background-color: #e0ecff;
+            border-radius: 10px;
+            padding: 6px;
+        }
+
+        .dark-mode .form-toggle {
+            background-color: #444;
+        }
+
+        .form-toggle button {
+            flex: 1;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .form-toggle button.active {
+            background-color: var(--accent-light);
+            color: white;
+        }
+
+        .dark-mode .form-toggle button.active {
+            background-color: var(--accent-dark);
+        }
+
+        .form {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form.active-form {
+            display: flex;
+        }
+
+        .form input {
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            background: #f3f6fa;
+        }
+
+        .dark-mode .form input {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: hsl(29, 90%, 65%);;
+        }
+
+        .form .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form button {
+            padding: 12px;
+            border: none;
+            background-color: #0077ff;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form button:hover {
+            background-color: #005ecf;
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .social-buttons img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .catchy-text {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .dark-mode .catchy-text {
+            color: #ddd;
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-toggle {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- <button class="toggle-mode" onclick="toggleDarkMode()">Toggle Theme</button> -->
+
+        <div class="logo">
+            <img src="assets/images/bcom-logo-removebg-preview.png" alt="Logo">
+        </div>
+
+        <div class="catchy-text" id="welcomeText">
+            <p>Welcome back! Happy shopping 🛍️</p>
+        </div>
+
+
+        <div class="form-toggle">
+            <button id="loginBtn" class="active">Login</button>
+            <button id="signupBtn">Sign Up</button>
+        </div>
+
+        <form id="loginForm" class="form active-form">
+            <input type="text" placeholder="Email or Phone" required>
+            <div class="password-container">
+                <input type="password" placeholder="Password" id="loginPass" required />
+                <span class="password-toggle" onclick="togglePassword('loginPass', this)">Show</span>
+            </div>
+            <label class="remember">
+                <input type="checkbox"> Remember Me
+            </label>
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="signupForm" class="form">
+            <input type="text" placeholder="First Name" required />
+            <input type="text" placeholder="Last Name" required />
+            <input type="email" placeholder="Email" required />
+            <div class="password-container">
+                <input type="password" placeholder="Password" id="signupPass" required />
+                <span class="password-toggle" onclick="togglePassword('signupPass', this)">Show</span>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="social-login">
+            <p>Or continue with</p>
+            <div class="social-buttons">
+                <button>
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" /> Google
+                </button>
+                <button>
+                    <img src="https://www.svgrepo.com/show/475703/facebook-color.svg" alt="Facebook" /> Facebook
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        loginBtn.onclick = () => {
+            loginForm.classList.add("active-form");
+            signupForm.classList.remove("active-form");
+            loginBtn.classList.add("active");
+            signupBtn.classList.remove("active");
+        };
+
+        signupBtn.onclick = () => {
+            signupForm.classList.add("active-form");
+            loginForm.classList.remove("active-form");
+            signupBtn.classList.add("active");
+            loginBtn.classList.remove("active");
+        };
+
+        function togglePassword(id, el) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                el.textContent = "Hide";
+            } else {
+                input.type = "password";
+                el.textContent = "Show";
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        const welcomeText = document.getElementById("welcomeText");
+
+        loginBtn.onclick = () => {
+            loginForm.classList.add("active-form");
+            signupForm.classList.remove("active-form");
+            loginBtn.classList.add("active");
+            signupBtn.classList.remove("active");
+            welcomeText.innerHTML = `<p>Welcome back! Happy shopping 🛍️</p>`;
+        };
+
+        signupBtn.onclick = () => {
+            signupForm.classList.add("active-form");
+            loginForm.classList.remove("active-form");
+            signupBtn.classList.add("active");
+            loginBtn.classList.remove("active");
+            welcomeText.innerHTML = `<p>Sayebo says Hello! 👋</p><p>The best finds are just a click away! Explore 🛒</p>`;
+        };
+
+    </script>
+</body>
+
+</html>
