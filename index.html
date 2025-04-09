@@ -37,7 +37,7 @@
     - MODAL
   -->
 
-  <div class="modal" data-modal>
+  <!-- <div class="modal" data-modal>
 
     <div class="modal-close-overlay" data-modal-overlay></div>
 
@@ -45,13 +45,13 @@
 
       <button class="modal-close-btn" data-modal-close>
         <ion-icon name="close-outline"></ion-icon>
-      </button>
+      </button> -->
 
-      <div class="newsletter-img">
+      <!-- <div class="newsletter-img">
         <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
-      </div>
+      </div> -->
 
-      <div class="newsletter">
+      <!-- <div class="newsletter">
 
         <form action="#">
 
@@ -73,388 +73,541 @@
 
       </div>
 
+    </div>-->
+
     </div>
 
-  </div>
 
 
 
 
-
-  <!--
+    <!--
     - NOTIFICATION TOAST
   -->
 
-  <div class="notification-toast" data-toast>
+    <div class="notification-toast" data-toast>
 
-    <button class="toast-close-btn" data-toast-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
+      <button class="toast-close-btn" data-toast-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
 
-    <div class="toast-banner">
-      <img src="./assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
-    </div>
+      <div class="toast-banner">
+        <img src="./assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
+      </div>
 
-    <div class="toast-detail">
+      <div class="toast-detail">
 
-      <p class="toast-message">
-        Someone in new just bought
-      </p>
+        <p class="toast-message">
+          Someone in new just bought
+        </p>
 
-      <p class="toast-title">
-        Rose Gold Earrings
-      </p>
+        <p class="toast-title">
+          Rose Gold Earrings
+        </p>
 
-      <p class="toast-meta">
-        <time datetime="PT2M">2 Minutes</time> ago
-      </p>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <!--
-    - HEADER
-  -->
-
-  <header>
-
-    <!-- <div class="header-top">
-
-      <div class="container">
-
-        <ul class="header-social-container">
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-        <div class="header-alert-news">
-          <p>
-            <b>Free Shipping</b>
-            This Week Order Over - R 
-            55
-          </p>
-        </div> -->
-
-    <div class="header-top-actions">
-
-      <select name="currency">
-
-        <option value="usd">USD &dollar;</option>
-        <option value="eur">EUR &euro;</option>
-
-      </select>
-
-      <select name="language">
-
-        <option value="en-US">English</option>
-        <option value="es-ES">Espa&ntilde;ol</option>
-        <option value="fr">Fran&ccedil;ais</option>
-
-      </select>
-
-    </div>
-
-    </div>
-
-    </div>
-
-    <div class="header-main">
-
-      <div class="container">
-
-        <a href="#" class="header-logo">
-          <img src="assets\images\bcom-logo-removebg-preview.png" alt="sayebo logo" width="150" height="90">
-        </a>
-
-        <div class="header-search-container">
-
-          <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
-
-          <button class="search-btn">
-            <ion-icon name="search-outline"></ion-icon>
-          </button>
-
-        </div>
-
-        <div class="header-user-actions">
-
-          <a href="login.html">
-            <button class="action-btn">
-              <ion-icon name="person-outline"></ion-icon>
-            </button>
-          </a>
-
-
-          <button class="action-btn">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
-
-          <button class="action-btn">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
-
-        </div>
+        <p class="toast-meta">
+          <time datetime="PT2M">2 Minutes</time> ago
+        </p>
 
       </div>
 
     </div>
 
-    <nav class="desktop-navigation-menu">
 
-      <div class="container">
 
-        <u class="desktop-menu-category-list">
 
-          <li class="menu-category">
-            <a href="#" class="menu-title">Home</a>
-          </li>
 
-          <li class="menu-category">
-            <a href="#" class="menu-title">Categories</a>
+    <!--
+    - HEADER
+  -->
 
-            <div class="dropdown-panel">
+    <header>
 
-              <ul class="dropdown-panel-list">
+      <!-- AUTH MODAL -->
+      <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+          <div class="auth-header">
+            <img src="assets/images/bcom-logo-removebg-preview.png" alt="Sayebo Logo" class="auth-logo" style="text-align: center;" />
+            <h2 class="auth-title">Welcome to Sayebo</h2>
+            <p class="auth-tagline">Shop Smart. Live Stylish.</p>
+          </div>
 
-                <li class="menu-title">
-                  <a href="#">Electronics</a>
-                </li>
+          <span class="auth-close">&times;</span>
 
-                <li class="panel-list-item">
-                  <a href="#">Television</a>
-                </li>
+          <div class="form-toggle">
+            <button id="showLogin" class="active">Login</button>
+            <button id="showSignup">Sign Up</button>
+          </div>
 
-                <li class="panel-list-item">
-                  <a href="#">Storage Devices</a>
-                </li>
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form">
+            <input type="text" placeholder="Email or Phone" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+          </form>
 
-                <li class="panel-list-item">
-                  <a href="#">Keyboard & Mouse</a>
-                </li>
+          <!-- Signup Form -->
+          <form id="signupForm" class="auth-form" style="display: none;">
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Last Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
 
-                <li class="panel-list-item">
-                  <a href="#">Wifi Router & Backup</a>
-                </li>
+      <style>
+        .auth-modal {
+          display: none;
+          position: fixed;
+          z-index: 9999;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(10, 10, 10, 0.6);
+          justify-content: center;
+          align-items: center;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Drone</a>
-                </li>
+        .auth-modal-content {
+          background: #ffffff;
+          padding: 2rem;
+          border-radius: 15px;
+          max-width: 420px;
+          width: 90%;
+          position: relative;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          animation: fadeIn 0.5s ease-in-out;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Hoverboards</a>
-                </li>
+        .auth-header {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250"
-                      height="119">
-                  </a>
-                </li>
+        .auth-logo {
+          width: 80px;
+          margin-bottom: 0.5rem;
+        }
 
-              </ul>
-              <ul class="dropdown-panel-list">
+        .auth-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #2e1065;
+        }
 
-                <li class="menu-title">
-                  <a href="#">Fashion</a>
-                </li>
+        .auth-tagline {
+          font-size: 0.9rem;
+          color: #6b7280;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Men's wear</a>
-                </li>
+        .auth-close {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          font-size: 24px;
+          color: #6b7280;
+          cursor: pointer;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Women's Wear</a>
-                </li>
+        .form-toggle {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          border-bottom: 2px solid #f3f4f6;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Kidswear</a>
-                </li>
+        .form-toggle button {
+          background: none;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 1rem;
+          color: #6b7280;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Winter Wear</a>
-                </li>
+        .form-toggle .active {
+          color: #4f46e5;
+          border-bottom: 3px solid #4f46e5;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">Accessories</a>
-                </li>
+        .auth-form {
+          display: flex;
+          flex-direction: column;
+        }
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
-                  </a>
-                </li>
+        .auth-form input {
+          margin-bottom: 15px;
+          padding: 10px;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          font-size: 0.9rem;
+        }
 
-              </ul>
+        .auth-form button {
+          background: linear-gradient(90deg, #6366f1, #8b5cf6);
+          color: white;
+          border: none;
+          padding: 12px;
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
 
-              <ul class="dropdown-panel-list">
+        .auth-form button:hover {
+          background: linear-gradient(90deg, #0077ff, #005ecf);
+        }
 
-                <li class="menu-title">
-                  <a href="#">Gaming & Media
-                  </a>
-                </li>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
 
-                <li class="panel-list-item">
-                  <a href="#">Play station
-                  </a>
-                </li>
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      </style>
 
-                <li class="panel-list-item">
-                  <a href="#">Xbox</a>
-                </li>
+      <script>
+        window.onload = function () {
+          setTimeout(() => {
+            const modal = document.getElementById("authModal");
+            modal.style.display = "flex";
+          }, 3000);
+        };
 
-                <li class="panel-list-item">
-                  <a href="#">PC gaming</a>
-                </li>
+        const closeBtn = document.querySelector(".auth-close");
+        const modal = document.getElementById("authModal");
+        const loginToggle = document.getElementById("showLogin");
+        const signupToggle = document.getElementById("showSignup");
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
 
-                <li class="panel-list-item">
-                  <a href="#">Gaming Chair
-                  </a>
-                </li>
+        closeBtn.onclick = function () {
+          modal.style.display = "none";
+        };
 
-                <li class="panel-list-item">
-                  <a href="#">Gaming accessories</a>
-                </li>
+        loginToggle.onclick = function () {
+          loginForm.style.display = "flex";
+          signupForm.style.display = "none";
+          loginToggle.classList.add("active");
+          signupToggle.classList.remove("active");
+        };
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
-                  </a>
-                </li>
+        signupToggle.onclick = function () {
+          signupForm.style.display = "flex";
+          loginForm.style.display = "none";
+          signupToggle.classList.add("active");
+          loginToggle.classList.remove("active");
+        };
 
-              </ul>
+        window.onclick = function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        };
+      </script>
 
-              <ul class="dropdown-panel-list">
+      <div class="header-top-actions">
 
-                <li class="menu-title">
-                  <a href="#">Garden,Pool & Patio</a>
-                </li>
+        <select name="currency">
 
-                <li class="panel-list-item">
-                  <a href="#">Garden Tools</a>
-                </li>
+          <option value="usd">USD &dollar;</option>
+          <option value="eur">EUR &euro;</option>
 
-                <li class="panel-list-item">
-                  <a href="#">Hose</a>
-                </li>
+        </select>
 
-                <li class="panel-list-item">
-                  <a href="#">Pool Accessories</a>
-                </li>
+        <select name="language">
 
-                <li class="panel-list-item">
-                  <a href="#">Patio Furniture & Heater</a>
-                </li>
+          <option value="en-US">English</option>
+          <option value="es-ES">Espa&ntilde;ol</option>
+          <option value="fr">Fran&ccedil;ais</option>
 
-                <li class="panel-list-item">
-                  <a href="#">Braais & Accessories</a>
-                </li>
+        </select>
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
-                  </a>
-                </li>
+      </div>
 
-              </ul>
-              <ul class="dropdown-panel-list">
+  </div>
 
-                <li class="menu-title">
-                  <a href="#">Camping & Outdoor</a>
-                </li>
+  </div>
 
-                <li class="panel-list-item">
-                  <a href="#">Camping Furniture</a>
-                </li>
+  <div class="header-main">
 
-                <li class="panel-list-item">
-                  <a href="#">Tents</a>
-                </li>
+    <div class="container">
 
-                <li class="panel-list-item">
-                  <a href="#">Cooler and refrigirator</a>
-                </li>
+      <a href="#" class="header-logo">
+        <img src="assets\images\bcom-logo-removebg-preview.png" alt="sayebo logo" width="150" height="90">
+      </a>
 
-                <li class="panel-list-item">
-                  <a href="#">Drone & Gopro</a>
-                </li>
+      <div class="header-search-container">
 
-                <li class="panel-list-item">
-                  <a href="#">Fishing accesories</a>
-                </li>
+        <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
-                  </a>
-                </li>
+        <button class="search-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
 
-              </ul>
-              <ul class="dropdown-panel-list">
+      </div>
 
-                <li class="menu-title">
-                  <a href="#">Garden,Pool & Patio</a>
-                </li>
+      <div class="header-user-actions">
 
-                <li class="panel-list-item">
-                  <a href="#">Garden Tools</a>
-                </li>
+        <a href="trail.html">
+          <button class="action-btn">
+            <ion-icon name="person-outline"></ion-icon>
+          </button>
+        </a>
 
-                <li class="panel-list-item">
-                  <a href="#">Hose</a>
-                </li>
 
-                <li class="panel-list-item">
-                  <a href="#">Pool Accessories</a>
-                </li>
+        <button class="action-btn">
+          <ion-icon name="heart-outline"></ion-icon>
+          <span class="count">0</span>
+        </button>
 
-                <li class="panel-list-item">
-                  <a href="#">Patio Furniture & Heater</a>
-                </li>
+        <button class="action-btn">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+          <span class="count">0</span>
+        </button>
 
-                <li class="panel-list-item">
-                  <a href="#">Braais & Accessories</a>
-                </li>
+      </div>
 
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
-                  </a>
-                </li>
+    </div>
 
-              </ul>
-            </div>
-          </li>
-          <!-- <li class="menu-category">
+  </div>
+
+  <nav class="desktop-navigation-menu">
+
+    <div class="container">
+
+      <u class="desktop-menu-category-list">
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Categories</a>
+
+          <div class="dropdown-panel">
+
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Electronics</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Television</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Storage Devices</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Keyboard & Mouse</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Wifi Router & Backup</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Drone</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Hoverboards</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250"
+                    height="119">
+                </a>
+              </li>
+
+            </ul>
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Fashion</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Men's wear</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Women's Wear</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Kidswear</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Winter Wear</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
+                </a>
+              </li>
+
+            </ul>
+
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Gaming & Media
+                </a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Play station
+                </a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Xbox</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">PC gaming</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Gaming Chair
+                </a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Gaming accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
+                </a>
+              </li>
+
+            </ul>
+
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Garden,Pool & Patio</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Garden Tools</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Hose</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Pool Accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Patio Furniture & Heater</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Braais & Accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
+                </a>
+              </li>
+
+            </ul>
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Camping & Outdoor</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Camping Furniture</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Tents</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Cooler and refrigirator</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Drone & Gopro</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Fishing accesories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
+                </a>
+              </li>
+
+            </ul>
+            <ul class="dropdown-panel-list">
+
+              <li class="menu-title">
+                <a href="#">Garden,Pool & Patio</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Garden Tools</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Hose</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Pool Accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Patio Furniture & Heater</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">Braais & Accessories</a>
+              </li>
+
+              <li class="panel-list-item">
+                <a href="#">
+                  <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+        <!-- <li class="menu-category">
           <a href="#" class="menu-title">Electronics</a>
 
           <ul class="dropdown-list">
@@ -477,266 +630,76 @@
           </ul>
         </li> -->
 
-          <li class="menu-category">
-            <a href="#" class="menu-title">Fashion</a>
+        <li class="menu-category">
+          <a href="#" class="menu-title">Fashion</a>
 
-            <ul class="dropdown-list">
+          <ul class="dropdown-list">
 
-              <li class="dropdown-item">
-                <a href="#">Men's Wear</a>
-              </li>
+            <li class="dropdown-item">
+              <a href="#">Men's Wear</a>
+            </li>
 
-              <li class="dropdown-item">
-                <a href="#">Women's Wear</a>
-              </li>
+            <li class="dropdown-item">
+              <a href="#">Women's Wear</a>
+            </li>
 
-              <li class="dropdown-item">
-                <a href="#">Kidswear</a>
-              </li>
+            <li class="dropdown-item">
+              <a href="#">Kidswear</a>
+            </li>
 
-              <li class="dropdown-item">
-                <a href="#">Accessories</a>
-              </li>
-
-            </ul>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Jewelry</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Earrings</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Couple Rings</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Necklace</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Bracelets</a>
-              </li>
-
-            </ul>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Perfume</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Clothes Perfume</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Deodorant</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Flower Fragrance</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Air Freshener</a>
-              </li>
-
-            </ul>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Blog</a>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Hot Offers</a>
-          </li>
+            <li class="dropdown-item">
+              <a href="#">Accessories</a>
+            </li>
 
           </ul>
-        </u>
-      </div>
-
-    </nav>
-
-    <div class="mobile-bottom-navigation">
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button>
-
-    </div>
-
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-
-      <ul class="mobile-menu-category-list">
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
         </li>
 
         <li class="menu-category">
+          <a href="#" class="menu-title">Jewelry</a>
 
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Men's</p>
+          <ul class="dropdown-list">
 
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Shirt</a>
+            <li class="dropdown-item">
+              <a href="#">Earrings</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Shorts & Jeans</a>
+            <li class="dropdown-item">
+              <a href="#">Couple Rings</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Safety Shoes</a>
+            <li class="dropdown-item">
+              <a href="#">Necklace</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Wallet</a>
+            <li class="dropdown-item">
+              <a href="#">Bracelets</a>
             </li>
 
           </ul>
-
         </li>
 
         <li class="menu-category">
+          <a href="#" class="menu-title">Perfume</a>
 
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Women's</p>
+          <ul class="dropdown-list">
 
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Dress & Frock</a>
+            <li class="dropdown-item">
+              <a href="#">Clothes Perfume</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Earrings</a>
+            <li class="dropdown-item">
+              <a href="#">Deodorant</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Necklace</a>
+            <li class="dropdown-item">
+              <a href="#">Flower Fragrance</a>
             </li>
 
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Makeup Kit</a>
+            <li class="dropdown-item">
+              <a href="#">Air Freshener</a>
             </li>
 
           </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Jewelry</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Earrings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Couple Rings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Necklace</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Bracelets</a>
-            </li>
-
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Perfume</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Clothes Perfume</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Deodorant</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Flower Fragrance</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Air Freshener</a>
-            </li>
-
-          </ul>
-
         </li>
 
         <li class="menu-category">
@@ -747,88 +710,278 @@
           <a href="#" class="menu-title">Hot Offers</a>
         </li>
 
+        </ul>
+      </u>
+    </div>
+
+  </nav>
+
+  <div class="mobile-bottom-navigation">
+
+    <button class="action-btn" data-mobile-menu-open-btn>
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <button class="action-btn">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+
+      <span class="count">0</span>
+    </button>
+
+    <button class="action-btn">
+      <ion-icon name="home-outline"></ion-icon>
+    </button>
+
+    <button class="action-btn">
+      <ion-icon name="heart-outline"></ion-icon>
+
+      <span class="count">0</span>
+    </button>
+
+    <button class="action-btn" data-mobile-menu-open-btn>
+      <ion-icon name="grid-outline"></ion-icon>
+    </button>
+
+  </div>
+
+  <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+    <div class="menu-top">
+      <h2 class="menu-title">Menu</h2>
+
+      <button class="menu-close-btn" data-mobile-menu-close-btn>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </div>
+
+    <ul class="mobile-menu-category-list">
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Home</a>
+      </li>
+
+      <li class="menu-category">
+
+        <button class="accordion-menu" data-accordion-btn>
+          <p class="menu-title">Men's</p>
+
+          <div>
+            <ion-icon name="add-outline" class="add-icon"></ion-icon>
+            <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          </div>
+        </button>
+
+        <ul class="submenu-category-list" data-accordion>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Shirt</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Shorts & Jeans</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Safety Shoes</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Wallet</a>
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="menu-category">
+
+        <button class="accordion-menu" data-accordion-btn>
+          <p class="menu-title">Women's</p>
+
+          <div>
+            <ion-icon name="add-outline" class="add-icon"></ion-icon>
+            <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          </div>
+        </button>
+
+        <ul class="submenu-category-list" data-accordion>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Dress & Frock</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Earrings</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Necklace</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Makeup Kit</a>
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="menu-category">
+
+        <button class="accordion-menu" data-accordion-btn>
+          <p class="menu-title">Jewelry</p>
+
+          <div>
+            <ion-icon name="add-outline" class="add-icon"></ion-icon>
+            <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          </div>
+        </button>
+
+        <ul class="submenu-category-list" data-accordion>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Earrings</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Couple Rings</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Necklace</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Bracelets</a>
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="menu-category">
+
+        <button class="accordion-menu" data-accordion-btn>
+          <p class="menu-title">Perfume</p>
+
+          <div>
+            <ion-icon name="add-outline" class="add-icon"></ion-icon>
+            <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          </div>
+        </button>
+
+        <ul class="submenu-category-list" data-accordion>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Clothes Perfume</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Deodorant</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Flower Fragrance</a>
+          </li>
+
+          <li class="submenu-category">
+            <a href="#" class="submenu-title">Air Freshener</a>
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Blog</a>
+      </li>
+
+      <li class="menu-category">
+        <a href="#" class="menu-title">Hot Offers</a>
+      </li>
+
+    </ul>
+
+    <div class="menu-bottom">
+
+      <ul class="menu-category-list">
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Language</p>
+
+            <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">English</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Espa&ntilde;ol</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Fren&ccedil;h</a>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Currency</p>
+            <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">USD &dollar;</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">EUR &euro;</a>
+            </li>
+          </ul>
+        </li>
+
       </ul>
 
-      <div class="menu-bottom">
+      <ul class="menu-social-container">
 
-        <ul class="menu-category-list">
+        <li>
+          <a href="" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
 
-          <li class="menu-category">
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
 
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Language</p>
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
 
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
 
-            <ul class="submenu-category-list" data-accordion>
+      </ul>
 
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">English</a>
-              </li>
+    </div>
 
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">Espa&ntilde;ol</a>
-              </li>
-
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">Fren&ccedil;h</a>
-              </li>
-
-            </ul>
-
-          </li>
-
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Currency</p>
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
-
-            <ul class="submenu-category-list" data-accordion>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">USD &dollar;</a>
-              </li>
-
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">EUR &euro;</a>
-              </li>
-            </ul>
-          </li>
-
-        </ul>
-
-        <ul class="menu-social-container">
-
-          <li>
-            <a href="" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </nav>
+  </nav>
 
   </header>
 
