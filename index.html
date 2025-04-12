@@ -127,9 +127,9 @@
       <div id="authModal" class="auth-modal">
         <div class="auth-modal-content">
           <div class="auth-header">
-            <img src="assets/images/bcom-logo-removebg-preview.png" alt="Sayebo Logo" class="auth-logo" style="text-align: center;" />
+            <img src="assets/images/bcom-logo-removebg-preview.png" alt="Sayebo Logo" class="auth-logo" style="display: block; margin: 0 auto;" />
             <h2 class="auth-title">Welcome to Sayebo</h2>
-            <p class="auth-tagline">Shop Smart. Live Stylish.</p>
+            <p class="auth-tagline">Your vibe. Your cart. Your rules.</p>
           </div>
 
           <span class="auth-close">&times;</span>
@@ -316,7 +316,7 @@
         };
       </script>
 
-      <div class="header-top-actions">
+      <!-- <div class="header-top-actions">
 
         <select name="currency">
 
@@ -333,19 +333,47 @@
 
         </select>
 
-      </div>
+      </div> -->
 
   </div>
 
   </div>
 
   <div class="header-main">
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+    <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
 
     <div class="container">
 
-      <a href="#" class="header-logo">
-        <img src="assets\images\bcom-logo-removebg-preview.png" alt="sayebo logo" width="150" height="90">
-      </a>
+      <!-- Desktop Logo -->
+<a href="#" class="header-logo desktop-only">
+  <img src="assets/images/bcom-logo-removebg-preview.png" alt="sayebo logo" width="150" height="90">
+</a>
+
+<!-- Mobile Logo (Top-Left Only) -->
+<a href="#" class="mobile-header-logo mobile-only">
+  <img src="assets/images/bcom-logo-removebg-preview.png" alt="sayebo logo" width="120" height="70">
+</a>
+
+
+      <!-- Top-left Search Icon for Mobile
+<div class="mobile-top-search">
+  <button onclick="toggleTopSearch()">
+    <ion-icon name="search-outline"></ion-icon>
+  </button>
+</div> -->
+<br>
+<!-- Hidden Search Input Bar -->
+<div class="top-search-bar" id="topSearchBar">
+  <input type="text" placeholder="Enter your product name..." />
+  <button>
+    <ion-icon name="search-outline"></ion-icon>
+  </button>
+</div>
+
 
       <div class="header-search-container">
 
@@ -381,6 +409,227 @@
     </div>
 
   </div>
+
+  <!-- Mobile Slide-Out Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMobileMenu()">&times;</button>
+  <ul>
+    <li><a href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a></li>
+    <li><a href="shop.html"><ion-icon name="storefront-outline"></ion-icon> Shop</a></li>
+    <li><a href="categories.html"><ion-icon name="grid-outline"></ion-icon> Categories</a></li>
+    <li><a href="wishlist.html"><ion-icon name="heart-outline"></ion-icon> Wishlist</a></li>
+    <li><a href="cart.html"><ion-icon name="bag-handle-outline"></ion-icon> Cart</a></li>
+    <li><a href="orders.html"><ion-icon name="receipt-outline"></ion-icon> Orders</a></li>
+    <li><a href="trail.html"><ion-icon name="log-in-outline"></ion-icon> Login</a></li>
+    <!-- <li><a href="signup.html"><ion-icon name="person-add-outline"></ion-icon> Sign Up</a></li> -->
+  </ul>
+  
+</div>
+<style>
+
+  /* Default: hide mobile logo, show desktop */
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: block;
+}
+
+/* Logo resizing only on mobile */
+@media (max-width: 768px) {
+  .mobile-header-logo img {
+    width: 100px; /* Reduce as needed */
+    height: auto;
+  }
+}
+
+
+/* Mobile screen settings */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-header-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1002;
+  }
+
+  .mobile-header-logo img {
+    width: 120px;
+    height: auto;
+  }
+}
+
+  /* Search Icon Styling */
+.mobile-top-search {
+  display: none;
+}
+
+.mobile-top-search button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Mobile logo hidden by default */
+.mobile-header-logo {
+  display: none;
+}
+
+/* Show logo at top-left corner only on mobile screens */
+@media (max-width: 768px) {
+  .mobile-header-logo {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1002;
+  }
+
+  /* Optional: reduce size for mobile */
+  .mobile-header-logo img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+
+/* Search Bar Styling */
+.top-search-bar {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.top-search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.top-search-bar button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Show only on small screens */
+@media (max-width: 768px) {
+  .mobile-top-search {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+  }
+
+  .top-search-bar {
+    display: flex;
+  }
+}
+
+  /* Hide toggle button by default */
+  .mobile-menu-toggle {
+  display: none;
+  background-color: transparent; /* Transparent background */
+  border: 1.5px solid #da9057;     /* Border color */
+  font-size: 36px;               /* Slightly reduced icon size */
+  color: #246c50;
+  padding: 0.5px;                  /* Smaller box size */
+  border-radius: 6px;            /* Rounded corners */
+}
+
+
+
+/* Mobile Menu Base */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -240px;
+  width: 220px;
+  height: auto;
+  background-color: white;
+  z-index: 1000;
+  padding: 30px 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu ul li {
+  margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.mobile-menu .close-menu {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mobile-menu ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.mobile-menu ion-icon {
+  font-size: 20px;
+  color: #555;
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+  .header-search-container {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .header-user-actions {
+    display: none;
+  }
+}
+
+</style>
+
 
   <nav class="desktop-navigation-menu">
 
@@ -3887,7 +4136,76 @@
 
   </footer>
 
+<!-- Floating Search Icon -->
+<!-- <button class="floating-search-icon" onclick="toggleFloatingSearch()">
+  <ion-icon name="search-outline"></ion-icon>
+</button> -->
 
+<!-- Bottom Slide-Up Search Bar -->
+<!-- <div class="floating-search-bar" id="floatingSearchBar">
+  <input type="text" placeholder="Search products..." />
+  <button>
+    <ion-icon name="search-outline"></ion-icon>
+  </button>
+</div>
+<style>
+  /* Floating Icon */
+.floating-search-icon {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 24px;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Search Bar Sliding From Bottom */
+.floating-search-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+  z-index: 999;
+  flex-direction: row;
+  gap: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.floating-search-bar input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.floating-search-bar button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .floating-search-icon {
+    display: block;
+  }
+}
+
+</style> -->
 
 
 
@@ -3902,6 +4220,28 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Mobile menu option -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu.style.right === "0px") {
+        menu.style.right = "-300px";
+      } else {
+        menu.style.right = "0px";
+      }
+    }
+  </script>
+
+<!-- Search icon for mobile -->
+<script>
+  function toggleTopSearch() {
+    const bar = document.getElementById("topSearchBar");
+    bar.style.display = bar.style.display === "flex" ? "none" : "flex";
+  }
+</script>
+
+  
 
 </body>
 
