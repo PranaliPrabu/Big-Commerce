@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fashion Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --eerie-black: hsl(0, 0%, 13%);
+      --salmon-pink: hsl(353, 100%, 78%);
+      --sandy-brown: hsl(29, 90%, 65%);
+      --bittersweet: hsl(0, 100%, 70%);
+      --ocean-green: hsl(152, 51%, 52%);
+      --davys-gray: hsl(0, 0%, 33%);
+      --cultured: hsl(0, 0%, 93%);
+      --white: hsl(0, 100%, 100%);
+      --onyx: hsl(0, 0%, 27%);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--cultured);
+      color: var(--onyx);
+    }
+
+    header {
+      background-color: var(--eerie-black);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: var(--salmon-pink);
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .section h2 {
+      margin-bottom: 1rem;
+      color: var(--eerie-black);
+    }
+
+    .slider-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      width: 240px;
+      height: 250px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      text-align: center;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0 0.3rem;
+    }
+
+    .product p {
+      color: var(--davys-gray);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .product button {
+      margin-top: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: none;
+      background-color: var(--bittersweet);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: var(--salmon-pink);
+    }
+
+    .cart {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 300px;
+      display: none;
+      z-index: 1001;
+    }
+
+    .cart h3 {
+      margin-top: 0;
+    }
+
+    .cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .show-cart {
+      display: block;
+    }
+
+    .see-more {
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    .see-more a {
+      text-decoration: none;
+      color: var(--eerie-black);
+      font-weight: bold;
+    }
+
+    .see-more a:hover {
+      color: var(--sandy-brown);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fashion Hub</h1>
+    <nav>
+      <a onclick="scrollToSection('men')">Men</a>
+      <a onclick="scrollToSection('women')">Women</a>
+      <a onclick="scrollToSection('kids')">Kids</a>
+      <a onclick="scrollToSection('accessories')">Accessories</a>
+      <a onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="section" id="men">
+    <h2>Men's Wear</h2>
+    <div class="slider-container" id="men-products"></div>
+    <div class="see-more"><a href="mens.html">See More</a></div>
+  </div>
+
+  <div class="section" id="women">
+    <h2>Women's Wear</h2>
+    <div class="slider-container" id="women-products"></div>
+    <div class="see-more"><a href="womens.html">See More</a></div>
+  </div>
+
+  <div class="section" id="kids">
+    <h2>Kids' Wear</h2>
+    <div class="slider-container" id="kids-products"></div>
+    <div class="see-more"><a href="kids.html">See More</a></div>
+  </div>
+
+  <div class="section" id="accessories">
+    <h2>Accessories</h2>
+    <div class="slider-container" id="accessories-products"></div>
+    <div class="see-more"><a href="accessories.html">See More</a></div>
+  </div>
+
+  <div class="cart" id="cart">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+  </div>
+
+  <script>
+    const data = {
+      men: Array.from({ length: 10 }, (_, i) => ({ name: `Men's Item ${i+1}`, price: `$${40+i*5}`, img: 'https://via.placeholder.com/240x300' })),
+      women: Array.from({ length: 10 }, (_, i) => ({ name: `Women's Item ${i+1}`, price: `$${45+i*5}`, img: 'https://via.placeholder.com/240x300' })),
+      kids: Array.from({ length: 10 }, (_, i) => ({ name: `Kids' Item ${i+1}`, price: `$${20+i*2}`, img: 'https://via.placeholder.com/240x300' })),
+      accessories: Array.from({ length: 10 }, (_, i) => ({ name: `Accessory ${i+1}`, price: `$${15+i*3}`, img: 'https://via.placeholder.com/240x300' }))
+    };
+
+    let cart = [];
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleCart() {
+      const cartBox = document.getElementById('cart');
+      cartBox.classList.toggle('show-cart');
+    }
+
+    function updateCartDisplay() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      cartItems.innerHTML = '';
+      cartCount.textContent = cart.length;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price}`;
+        cartItems.appendChild(li);
+      });
+    }
+
+    function addToCart(item) {
+      cart.push(item);
+      updateCartDisplay();
+    }
+
+    function loadProducts(category) {
+      const container = document.getElementById(`${category}-products`);
+      data[category].forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>${item.price}</p>
+          <button onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    ['men', 'women', 'kids', 'accessories'].forEach(loadProducts);
+  </script>
+</body>
+</html>
