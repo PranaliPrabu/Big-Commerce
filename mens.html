@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Men's Wear - Fashion Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --eerie-black: hsl(0, 0%, 13%);
+      --salmon-pink: hsl(353, 100%, 78%);
+      --sandy-brown: hsl(29, 90%, 65%);
+      --bittersweet: hsl(0, 100%, 70%);
+      --ocean-green: hsl(152, 51%, 52%);
+      --davys-gray: hsl(0, 0%, 33%);
+      --cultured: hsl(0, 0%, 93%);
+      --white: hsl(0, 100%, 100%);
+      --onyx: hsl(0, 0%, 27%);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--cultured);
+      color: var(--onyx);
+    }
+
+    header {
+      background-color: var(--eerie-black);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .product {
+      background-color: var(--white);
+      border-radius: 12px;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .product p {
+      font-weight: 600;
+      color: var(--bittersweet);
+    }
+
+    .product button {
+      background-color: var(--ocean-green);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .product button:hover {
+      background-color: var(--davys-gray);
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filters input,
+    .filters select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid var(--davys-gray);
+      font-size: 1rem;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 80px;
+      right: 0;
+      width: 300px;
+      max-height: 80vh;
+      background-color: var(--white);
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+      border-left: 1px solid var(--cultured);
+      padding: 1rem;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+    }
+
+    .cart-sidebar h3 {
+      margin-top: 0;
+    }
+
+    .cart-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-sidebar ul li {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .cart-button {
+      margin-left: auto;
+      background-color: var(--bittersweet);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cart-button:hover {
+      background-color: var(--sandy-brown);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Men's Wear</h1>
+    <button class="cart-button" onclick="toggleCart()">🛒 View Cart</button>
+  </header>
+
+  <div class="section">
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search products...">
+      <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Shirts">Shirts</option>
+        <option value="Jackets">Jackets</option>
+        <option value="Pants">Pants</option>
+      </select>
+      <select id="sortPrice">
+        <option value="">Sort by Price</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+
+    <div class="products" id="men-products"></div>
+  </div>
+
+  <div class="cart-sidebar" id="cart">
+    <h3>Your Cart (<span id="cart-count">0</span> items)</h3>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: $<span id="cart-total">0</span></strong></p>
+  </div>
+
+  <script>
+    const mensItems = [
+      { name: "Classic White Shirt", category: "Shirts", price: 39, img: "http://127.0.0.1:5500/assets/images/products/shirt-2.jpg" },
+      { name: "Denim Jacket", category: "Jackets", price: 59, img: "https://media.istockphoto.com/id/475570206/photo/denim-jacket.jpg?s=1024x1024&w=is&k=20&c=z79N5Ki0qiL_1DPEhGP2Kmuvoy002cWdxIbwVkCEnoo=" },
+      { name: "Slim Fit Chinos", category: "Pants", price: 42, img: "https://via.placeholder.com/300x280?text=Chinos" },
+      { name: "Cotton Polo T-Shirt", category: "Shirts", price: 29, img: "https://via.placeholder.com/300x280?text=Polo+Tee" },
+      { name: "Leather Jacket", category: "Jackets", price: 120, img: "http://127.0.0.1:5500/assets/images/products/jacket-4.jpg" },
+      { name: "Formal Blazer", category: "Jackets", price: 85, img: "https://via.placeholder.com/300x280?text=Blazer" },
+      { name: "Cargo Pants", category: "Pants", price: 49, img: "https://via.placeholder.com/300x280?text=Cargo+Pants" },
+      { name: "Checked Shirt", category: "Shirts", price: 35, img: "https://via.placeholder.com/300x280?text=Checked+Shirt" },
+      { name: "Wool Sweater", category: "Sweaters", price: 55, img: "https://via.placeholder.com/300x280?text=Sweater" },
+      { name: "Track Jacket", category: "Jackets", price: 45, img: "https://via.placeholder.com/300x280?text=Track+Jacket" }
+    ];
+
+    let cart = [];
+
+    const container = document.getElementById('men-products');
+    const searchInput = document.getElementById('search');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortPrice = document.getElementById('sortPrice');
+
+    const cartEl = document.getElementById('cart');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartCountEl = document.getElementById('cart-count');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    function toggleCart() {
+      cartEl.style.display = cartEl.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function addToCart(item) {
+      cart.push(item);
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      cartItemsEl.innerHTML = '';
+      cartCountEl.textContent = cart.length;
+
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItemsEl.appendChild(li);
+        total += item.price;
+      });
+
+      cartTotalEl.textContent = total.toFixed(2);
+    }
+
+    function renderProducts(items) {
+      container.innerHTML = "";
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'product';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>$${item.price}</p>
+          <button onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function filterAndSortProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+      const sortValue = sortPrice.value;
+
+      let filtered = mensItems.filter(item =>
+        item.name.toLowerCase().includes(searchTerm) &&
+        (selectedCategory === "All" || item.category === selectedCategory)
+      );
+
+      if (sortValue === "asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortValue === "desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      renderProducts(filtered);
+    }
+
+    searchInput.addEventListener('input', filterAndSortProducts);
+    categoryFilter.addEventListener('change', filterAndSortProducts);
+    sortPrice.addEventListener('change', filterAndSortProducts);
+
+    renderProducts(mensItems);
+  </script>
+
+</body>
+</html>
